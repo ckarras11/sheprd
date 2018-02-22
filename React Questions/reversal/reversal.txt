@@ -1,0 +1,3 @@
+cd into reversal
+npm install
+npm start
