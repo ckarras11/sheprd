@@ -18,3 +18,55 @@
 //day8 [0,10,20,30,40,50,60,70]
 //day9 [0,10,20,30,40,50,60,70,80]
 //day10[0,10,20,30,40,50,60,70,80,90]
+
+//cd into CS Questions
+//node frog.js
+
+function frogs(days) {
+    let frogs = [];
+    let weight = 0;
+    let avg = 0;
+    for (let i = 1; i <= days; i++) {
+        if (i > 10) {
+            frogs.push(100)
+        } else {
+            frogs.push(weight);
+            weight += 10;
+        }
+    }
+    let total = frogs.reduce((total, num) => {
+        return total + num;
+    }, 0)
+
+    total === 0 ? avg = 0 : avg = total / frogs.length;
+
+    console.log(`There are ${frogs.length} frogs weighing a total of ${total} grams.  
+    The average frog weighs ${avg} grams `)
+}
+
+frogs(5)
+
+function moreFrogs(days, schedule) {
+    let frogs = [];
+    let weight = 0;
+    let avg = 0;
+    for (let i = 1; i <= days; i++) {
+        if (i % schedule === 0) {
+            if (frogs.length > 10) {
+                frogs.push(100)
+            } else {
+                frogs.push(weight);
+                weight += 10;
+            }
+        }
+    }
+    let total = frogs.reduce((total, num) => {
+        return total + num;
+    }, 0)
+
+    total === 0 ? avg = 0 : avg = total / frogs.length;
+
+    console.log(`There are ${frogs.length} frogs weighing a total of ${total} grams.  
+    The average frog weighs ${avg} grams `)
+}
+moreFrogs(10, 1)
